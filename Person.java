@@ -1,14 +1,18 @@
-public class Person {
-    String name="unknown";
-    int age;
+public class Person implements Nameable {
     int id;
-    boolean parent_permission=true;
+    String name="unkown";
+    int age;
+    boolean parent_Permission=true;
 
-    public Person(String  name,int id,int age,boolean parent_permission){
-        this.name=name;
-        this.age=age;
-        this.id=id;
-        this.parent_permission=parent_permission;
+
+    public Person( String name, int age, boolean parent_Permission) {
+        this.name = name;
+        this.age = age;
+        this.parent_Permission = parent_Permission;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -19,10 +23,6 @@ public class Person {
         return age;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -30,19 +30,16 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
-    private boolean of_age() {
-        if (age>=18)
-            return true;
-        else{
-            return false;
-        }
-    }
-    public boolean can_use_services() {
-        if (of_age() || parent_permission)
-            return true;
-        else {
-            return false;
-        }
+
+    private boolean isOf_Age() {
+        return age >= 18;
     }
 
+    public boolean canUseServices() {
+        return isOf_Age() || parent_Permission;
+    }
+    @Override
+    public String getCorrectName() {
+        return name;
+    }
 }

@@ -1,14 +1,22 @@
-public class Person implements Nameable {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Person implements Nameable  {
     int id;
-    String name="unkown";
+
+
+    String name;
+
     int age;
-    boolean parent_Permission=true;
+
+    boolean parent_permission;
 
 
-    public Person( String name, int age, boolean parent_Permission) {
+    public Person(String name, int age, boolean parent_permission) {
+        this.id = (int) (Math.random() * 1000000);
         this.name = name;
         this.age = age;
-        this.parent_Permission = parent_Permission;
+        this.parent_permission = parent_permission;
     }
 
     public int getId() {
@@ -19,27 +27,27 @@ public class Person implements Nameable {
         return name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void setAge(int age) {
         this.age = age;
     }
 
-    private boolean isOf_Age() {
-        return age >= 18;
+    public boolean isParentPermission() {
+        return parent_permission;
     }
 
-    public boolean canUseServices() {
-        return isOf_Age() || parent_Permission;
+    public void setParentPermission(boolean parent_permission) {
+        this.parent_permission = parent_permission;
     }
-    @Override
-    public String getCorrectName() {
+
+    public String correct_name() {
         return name;
     }
 }

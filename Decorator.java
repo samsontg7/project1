@@ -1,4 +1,4 @@
-public  class Decorator implements Nameable {
+public abstract class Decorator implements Nameable {
     protected Nameable nameable;
 
     public Decorator(Nameable nameable) {
@@ -6,7 +6,7 @@ public  class Decorator implements Nameable {
     }
 
     @Override
-    public String getCorrectName() {
-        return nameable.getCorrectName();
+    public String correct_name() {
+        return nameable.correct_name();
     }
 }
